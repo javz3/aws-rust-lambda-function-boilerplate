@@ -1,0 +1,29 @@
+service: rust-lambda-service
+
+provider:
+  name: aws
+  runtime: provided.al2
+  region: us-east-1
+  environment:
+    RUST_BACKTRACE: 1
+
+functions:
+  SendMessageFunction:
+    handler: doesn't matter
+    package:
+      artifact: target/lambda/release/lambda.zip
+    events:
+      - http:
+          path: send
+          method: post
+  ReceiveMessageFunction:
+    handler: doesn't matter
+    package:
+      artifact: target/lambda/release/lambda.zip
+    events:
+      - http:
+          path: receive
+          method: get
+
+plugins:
+  - serverless-rust
