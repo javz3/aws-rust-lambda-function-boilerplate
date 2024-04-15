@@ -10,6 +10,14 @@ path = "src/lib.rs"
 name = "main"
 path = "src/main.rs" 
 
+[[bin]]
+name = "send_message_lambda"
+path = "src/bin/send_message_lambda.rs"
+
+[[bin]]
+name = "receive_message_lambda"
+path = "src/bin/receive_message_lambda.rs"
+
 [dependencies]
 aws-config = { version = "1.0.1", features = ["behavior-version-latest"] }
 aws-sdk-sqs = { version = "1.3.0" }
